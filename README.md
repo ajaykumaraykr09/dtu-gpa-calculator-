@@ -1,10 +1,10 @@
 ## 📸 Screenshots
 
-### Main Page
-![Main](cgpa web.jpg)
+### Main UI
+![Main UI](assets/main-ui.png)
 
 ### Calculator
-![Calculator](MAIN CAL TEST2.jpg)
+![Calculator](assets/calculator.png)
 
 ### Result
-![Result](MAIN RESULT FORMAT.jpg)
+![Result](assets/result.png)
