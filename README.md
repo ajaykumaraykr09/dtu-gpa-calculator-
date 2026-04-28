@@ -6,6 +6,12 @@ The application provides a structured and user-friendly interface, supporting mu
 
 ---
 
+## 🎥 Demo (Working Video)
+
+> Below is a complete working demo of the application:
+
+---
+
 ## 💡 Why This Tool?
 
 This tool is especially useful for students who have had backlogs during their academic journey. In such cases, calculating CGPA manually becomes complex and often confusing, particularly when multiple backlog attempts are involved.
@@ -29,27 +35,13 @@ This tool eliminates that complexity by fully automating the process. It intelli
 
 ---
 
-## 🎥 Demo Video
-
-<p align="center">
-  <video src="demo.mp4" controls width="700"></video>
-</p>
-
----
-
 ## 📸 Screenshots
 
 ### 🏠 Main UI
 
-![Main UI](assets/main-ui.jpg)
-
 ### 🧮 Calculator
 
-![Calculator](assets/calculator.jpg)
-
 ### 📊 Result
-
-![Result](assets/result.jpg)
 
 ---
 
@@ -64,7 +56,7 @@ This tool eliminates that complexity by fully automating the process. It intelli
 
 ## 🌐 Live Demo
 
-👉 https://your-github-pages-link
+👉 demo.mp4
 
 ---
 
