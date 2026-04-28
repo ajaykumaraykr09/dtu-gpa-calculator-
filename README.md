@@ -29,6 +29,14 @@ This tool eliminates that complexity by fully automating the process. It intelli
 
 ---
 
+## 🎥 Demo Video
+
+<p align="center">
+  <video src="demo.mp4" controls width="700"></video>
+</p>
+
+---
+
 ## 📸 Screenshots
 
 ### 🏠 Main UI
