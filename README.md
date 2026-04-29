@@ -1,4 +1,4 @@
-# 🎓 DTU GPA & CGPA Calculator
+# 🎓 Advanced DTU GPA & CGPA Calculator
 
 A powerful and easy-to-use web-based academic tool designed for Delhi Technological University (DTU) students to accurately calculate their Semester Grade Point Average (SGPA) and Cumulative Grade Point Average (CGPA) based on the official grading system.
 
