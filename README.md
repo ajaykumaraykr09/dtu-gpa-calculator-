@@ -8,7 +8,7 @@ The application provides a structured and user-friendly interface, supporting mu
 
 ## 🎥 Demo (Working Video)
 
-> Below is a complete working demo of the application:
+> 👉Watch attached video: demo.mp4
 
 ---
 
@@ -51,12 +51,6 @@ This tool eliminates that complexity by fully automating the process. It intelli
 * CSS
 * JavaScript
 * jsPDF (for PDF generation)
-
----
-
-## 🌐 Live Demo
-
-👉Watch attached video: demo.mp4
 
 ---
 
