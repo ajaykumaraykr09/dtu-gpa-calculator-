@@ -543,14 +543,14 @@
                     <table class="grading-ref-table">
                         <thead><tr><th>Grade</th><th>Points</th><th>Range (m &plusmn; &sigma;)</th><th>Absolute %</th></tr></thead>
                         <tbody>
-                            <tr><td class="grade-cell">O</td><td class="points-cell">10</td><td class="formula-cell">m &ge; x&#772; + 1.5&sigma;</td><td>&ge; 91%</td></tr>
-                            <tr><td class="grade-cell">A+</td><td class="points-cell">9</td><td class="formula-cell">m &ge; x&#772; + 1&sigma;</td><td>&ge; 82%</td></tr>
-                            <tr><td class="grade-cell">A</td><td class="points-cell">8</td><td class="formula-cell">m &ge; x&#772; + 0.5&sigma;</td><td>&ge; 73%</td></tr>
-                            <tr><td class="grade-cell">B+</td><td class="points-cell">7</td><td class="formula-cell">m &ge; x&#772; + 0&sigma;</td><td>&ge; 64%</td></tr>
-                            <tr><td class="grade-cell">B</td><td class="points-cell">6</td><td class="formula-cell">m &ge; x&#772; - 0.5&sigma;</td><td>&ge; 55%</td></tr>
-                            <tr><td class="grade-cell">C</td><td class="points-cell">5</td><td class="formula-cell">m &ge; x&#772; - 1&sigma;</td><td>&ge; 46%</td></tr>
-                            <tr><td class="grade-cell">P</td><td class="points-cell">4</td><td class="formula-cell">m &ge; x&#772; - 1.5&sigma;</td><td>&ge; 35%</td></tr>
-                            <tr><td class="grade-cell">F</td><td class="points-cell">0</td><td class="formula-cell">m &lt; x&#772; - 1.5&sigma;</td><td>&lt; 35%</td></tr>
+                            <tr><td class="grade-cell">O</td><td class="points-cell">10</td><td class="formula-cell">m &ge; x&#772; + 1.5 &sigma;</td><td>&ge; 91%</td></tr>
+                            <tr><td class="grade-cell">A+</td><td class="points-cell">9</td><td class="formula-cell">m &ge; x&#772; + 1 &sigma;</td><td>&ge; 82%</td></tr>
+                            <tr><td class="grade-cell">A</td><td class="points-cell">8</td><td class="formula-cell">m &ge; x&#772; + 0.5 &sigma;</td><td>&ge; 73%</td></tr>
+                            <tr><td class="grade-cell">B+</td><td class="points-cell">7</td><td class="formula-cell">m &ge; x&#772; + 0 &sigma;</td><td>&ge; 64%</td></tr>
+                            <tr><td class="grade-cell">B</td><td class="points-cell">6</td><td class="formula-cell">m &ge; x&#772; - 0.5 &sigma;</td><td>&ge; 55%</td></tr>
+                            <tr><td class="grade-cell">C</td><td class="points-cell">5</td><td class="formula-cell">m &ge; x&#772; - 1 &sigma;</td><td>&ge; 46%</td></tr>
+                            <tr><td class="grade-cell">P</td><td class="points-cell">4</td><td class="formula-cell">m &ge; x&#772; - 1.5 &sigma;</td><td>&ge; 35%</td></tr>
+                            <tr><td class="grade-cell">F</td><td class="points-cell">0</td><td class="formula-cell">m &lt; x&#772; - 1.5 &sigma;</td><td>&lt; 35%</td></tr>
                         </tbody>
                     </table>
                     <div class="grading-ref-link">
@@ -635,7 +635,7 @@
         <div class="remarks-overlay" id="remarks-overlay"></div>
         <div class="remarks-card">
             <h3><i class="fas fa-pen-fancy"></i> Add Remarks</h3>
-            <p class="remarks-subtitle">Optional Ã¢â‚¬â€ Add notes for failed subjects</p>
+            <p class="remarks-subtitle">Optional â€” Add notes for failed subjects</p>
             <div class="remarks-body" id="remarks-body"></div>
             <div class="remarks-footer">
                 <button class="btn" id="btn-skip-remarks">Skip</button>
@@ -714,7 +714,8 @@
             });
             const res = cr > 0 ? pts / cr : 0;
             document.getElementById('quick-sgpa-val').textContent = res.toFixed(2);
-            return { res, totalPoints: pts, totalCredits: cr, parts: quickSgpaState.rows.map(r => `(${GRADE_POINTS[r.grade]}Ãƒâ€”${r.credits})`) };
+            // Using 'x' for PDF parts to be safe
+            return { res, totalPoints: pts, totalCredits: cr, parts: quickSgpaState.rows.map(r => `(${GRADE_POINTS[r.grade]}x${r.credits})`) };
         }
 
         function renderQuickSgpa() {
@@ -772,7 +773,7 @@
             });
             const res = cr > 0 ? pts / cr : 0;
             document.getElementById('quick-cgpa-val').textContent = res.toFixed(3);
-            return { res, totalPoints: pts, totalCredits: cr, parts: quickCgpaState.rows.map(r => `(${r.cgpa}Ãƒâ€”${r.credits})`) };
+            return { res, totalPoints: pts, totalCredits: cr, parts: quickCgpaState.rows.map(r => `(${r.cgpa}x${r.credits})`) };
         }
 
         function renderQuickCgpa() {
@@ -856,7 +857,7 @@
             } else {
                 // For CGPA, we typically exclude F grades from the calculation (they give 0 points)
                 // but they are still part of the 'subjects'. 
-                // The user wants the formula.
+                // The user wants to formula.
                 filtered = subjects.filter(s => !s.replaced && s.name.trim() && s.credits > 0 && s.grade !== 'F');
             }
 
@@ -864,7 +865,8 @@
 
             const parts = filtered.map(s => {
                 const pts = GRADE_POINTS[s.grade] || 0;
-                return `(${pts}Ãƒâ€”${s.credits})`;
+                // FIXED: Using HTML entity &times; for multiplication to avoid mojibake
+                return `(${pts} &times; ${s.credits})`;
             });
 
             let totalPoints = 0;
@@ -884,7 +886,7 @@
             // (Ax)+(Bx) / Total = Result
             return {
                 textHTML: `<span class="calc-part">${parts.join(' + ')}</span> <span class="calc-eq">/</span> <span class="calc-denom">${totalCredits}</span> <span class="calc-eq">=</span> <span class="calc-num">${result.toFixed(2)}</span>`,
-                rawParts: parts,
+                rawParts: parts, // Used for PDF - will handle in generatePlainCalculationString
                 totalPoints,
                 totalCredits,
                 result
@@ -904,7 +906,8 @@
 
             const parts = filtered.map(s => {
                 const pts = GRADE_POINTS[s.grade] || 0;
-                return `(${pts}Ãƒâ€”${s.credits})`;
+                // FIXED: Using 'x' for plain text PDF formula to avoid special char issues
+                return `(${pts}x${s.credits})`;
             });
 
             let totalPoints = 0;
@@ -1269,7 +1272,7 @@
                     const pageW = doc.internal.pageSize.getWidth(); const margin = 14; let y = generatePDFHeader(doc, 'SGPA Calculator Report', pageW, margin);
                     const tableBody = quickSgpaState.rows.map((r, i) => {
                         const gp = GRADE_POINTS[r.grade] || 0; const status = r.grade === 'F' ? 'FAIL' : 'PASS';
-                        return [i+1, '', r.subject || 'â€”', r.credits, r.grade, gp, status, 'No'];
+                        return [i+1, '', r.subject || '—', r.credits, r.grade, gp, status, 'No'];
                     });
                     doc.autoTable({
                         startY: y, head: [['Sr.', 'Sub Code', 'Subject Name', 'Cr.', 'Grade', 'GP', 'Status', 'BL Hist.']],
@@ -1290,7 +1293,7 @@
                     doc.setFont('helvetica', 'bold'); doc.text(`Total SGPA: ${calcData.res.toFixed(2)}`, pageW - margin, y, { align: 'right' }); y += 8;
                     if (calcData.totalCredits > 0) {
                         doc.setFont('courier', 'normal'); doc.setFontSize(8); doc.setTextColor(80, 80, 80);
-                        // Updated Calculation Format
+                        // Updated Calculation Format - Using 'x' to ensure PDF rendering
                         const calcStr = `SGPA = (${calcData.parts.join(' + ')}) / ${calcData.totalCredits} = ${calcData.totalPoints} / ${calcData.totalCredits} = ${calcData.res.toFixed(2)}`;
                         const splitCalc = doc.splitTextToSize(calcStr, pageW - margin*2); doc.text(splitCalc, margin, y);
                         y += (splitCalc.length * 3.5) + 4; doc.setTextColor(0,0,0);
@@ -1369,8 +1372,8 @@
                             const gp = GRADE_POINTS[sub.grade] || 0; const status = getSubStatus(sub); const blHist = sub.isBacklog ? 'Yes' : 'No';
                             semCr += sub.credits; semPts += gp * sub.credits;
                             // Reordered columns: Sr, Code, Name, Credits, Grade, GP, Status, BL Hist, Notif (Last)
-                            // FIXED: Removed 'â€”' placeholder for empty Notif fields to avoid weird font characters
-                            tableBody.push([srNo++, sub.code || 'â€”', sub.name || 'â€”', sub.credits, sub.grade, gp, status, blHist, sub.notif || '']);
+                            // FIXED: Removed '—' placeholder for empty Notif fields to avoid weird font characters
+                            tableBody.push([srNo++, sub.code || '—', sub.name || '—', sub.credits, sub.grade, gp, status, blHist, sub.notif || '']);
                         });
                         effective.forEach(sub => {
                             if (sub.grade !== 'F') {
@@ -1415,7 +1418,7 @@
                         const sgpaCalc = generatePlainCalculationString(sem.subjects, 'sgpa');
                         if(sgpaCalc) {
                             doc.setFont('courier', 'normal'); doc.setFontSize(8); doc.setTextColor(80, 80, 80);
-                            // Format: (Ax)+(Bx)... / Total = Result
+                            // Format: (Ax)+(Bx)... / Total = Result - Using 'x' for safety
                             const calcStr = `SGPA = ${sgpaCalc.textStr}`;
                             const splitCalc = doc.splitTextToSize(calcStr, pageW - margin*2); doc.text(splitCalc, margin, y);
                             y += (splitCalc.length * 3.5) + 4; doc.setTextColor(0,0,0);
@@ -1447,7 +1450,7 @@
                         doc.setFontSize(9); doc.setFont('helvetica', 'normal');
                         remarksEntries.forEach(([key, remark]) => {
                             if (y > 275) { doc.addPage(); y = margin; }
-                            doc.setTextColor(210, 40, 40); doc.text(`Ã¢â‚¬Â¢ ${key}:`, margin + 3, y, { continued: true });
+                            doc.setTextColor(210, 40, 40); doc.text(`• ${key}:`, margin + 3, y, { continued: true });
                             doc.setTextColor(60, 60, 60); doc.text(`  ${remark}`); y += 5;
                         });
                         doc.setTextColor(0, 0, 0); y += 4;
@@ -1461,7 +1464,7 @@
                         doc.text(`Page ${i} of ${pageCount}`, pageW - margin, pageH - 6, { align: 'right' });
                     }
                     doc.save('DTU_GPA_Result.pdf'); showToast('PDF downloaded successfully', 'success');
-                } catch (err) { console.error('PDF generation failed:', err); showToast('PDF generation failed Ã¢â‚¬â€ try again', 'error'); } finally { loading.classList.remove('active'); }
+                } catch (err) { console.error('PDF generation failed:', err); showToast('PDF generation failed â€” try again', 'error'); } finally { loading.classList.remove('active'); }
             }, 80);
         }
 
