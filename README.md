@@ -13,11 +13,6 @@ It enables accurate calculation of **Semester Grade Point Average (SGPA)** and *
 
 The application is designed to simplify complex academic calculations, especially in scenarios involving **multiple backlogs and repeated attempts**, ensuring both accuracy and ease of use.
 
----
-
-## 🎥 Demo
-
-👉 [Watch / Download Demo](demo.mp4)
 
 ---
 
