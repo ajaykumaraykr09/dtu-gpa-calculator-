@@ -1,10 +1,12 @@
 # 🎓 Advanced DTU GPA & CGPA Calculator
 
-A powerful and easy-to-use web-based academic tool designed for Delhi Technological University (DTU) students to accurately calculate their Semester Grade Point Average (SGPA) and Cumulative Grade Point Average (CGPA) based on the official grading system.
+🌐 **Live Website:** https://advanced-dtu-cgpa-calculator.vercel.app/
 
-This is a **simple yet highly advanced calculator** that automates complex academic calculations, making CGPA computation fast, accurate, and hassle-free — even in cases involving multiple backlogs.
+A powerful and easy-to-use web-based academic tool designed for **Delhi Technological University (DTU)** students to accurately calculate their **SGPA (Semester Grade Point Average)** and **CGPA (Cumulative Grade Point Average)** based on the official grading system.
 
-The application provides a clean and user-friendly interface, supporting multi-semester calculations, intelligent backlog handling, and PDF export of results for academic reference.
+This tool automates complex academic calculations, making CGPA computation **fast, accurate, and hassle-free** — even for students with multiple backlogs.
+
+It features a clean and intuitive interface, multi-semester support, and smart handling of backlog subjects according to official DTU rules.
 
 ---
 
@@ -16,41 +18,59 @@ The application provides a clean and user-friendly interface, supporting multi-s
 
 ## 💡 Why This Tool?
 
-This tool is especially useful for students who have had backlogs during their academic journey. In such cases, calculating CGPA manually becomes complex and often confusing, particularly when multiple backlog attempts are involved.
+Calculating CGPA manually becomes confusing when:
 
-As per the official DTU grading system, only the latest valid attempt of a subject is considered in CGPA calculation. Managing this manually—tracking replaced subjects, excluding previous attempts, and applying correct grading rules—can be time-consuming and error-prone.
+- Multiple backlog attempts exist  
+- Subjects are repeated or replaced  
+- Different semesters need to be combined  
 
-This tool solves that problem by acting as a **powerful automated CGPA calculator**. It intelligently handles multiple backlogs, considers only the latest attempts, and performs all calculations strictly according to DTU’s official grading policy.
+According to DTU’s official grading system:
+👉 Only the **latest valid attempt** of a subject is considered in CGPA  
 
-As a result, it transforms a complicated manual process into a **simple, fast, and reliable experience**.
+This tool solves that problem by:
+
+- Automatically handling backlog replacements  
+- Ignoring outdated attempts  
+- Applying correct grading rules  
+
+Result → **Accurate CGPA in seconds without manual effort**
 
 ---
 
 ## 🚀 Features
 
-* Powerful and accurate CGPA calculation engine  
-* Simple and intuitive user interface  
-* SGPA calculation based on subject-wise credits and grades  
-* CGPA calculation across multiple semesters  
-* Multi-semester data management  
-* Advanced backlog handling (latest valid attempt automatically considered)  
-* Fully automated calculation as per official DTU rules  
-* Export results in PDF format  
-* Clean, responsive, and modern UI  
+* Accurate SGPA & CGPA calculation (DTU official system)  
+* Multi-semester CGPA calculation  
+* Advanced backlog handling (latest attempt considered)  
+* **NEW: Real-time SGPA calculation (no refresh required)**  
+* **NEW: Notification panel for official result clarity**  
+* Clean and intuitive user interface  
 * Light and Dark mode support  
+* PDF export of results  
+* Fast and responsive performance  
 
 ---
 
 ## 📸 Screenshots
 
-### 🏠 Main UI
-![Main UI](assets/main-ui.jpg)
+### 🏠 Home (Dark & Light)
+![Home Dark](assets/home-dark.jpeg)
+![Home Light](assets/home-light.jpeg)
 
-### 🧮 Calculator
-![Calculator](assets/calculator.jpg)
+### 🧮 CGPA Calculator
+![CGPA Dark](assets/cgpa-dark.jpeg)
+![CGPA Light](assets/cgpa-light.jpeg)
 
-### 📊 Result
-![Result](assets/result.jpg)
+### 📊 SGPA (Live Calculation)
+![SCGPA Dark](assets/scgpa-dark.jpeg)
+![SCGPA Light](assets/scgpa-light.jpeg)
+
+### 📘 Grading System
+![Grading Dark](assets/grading-dark.jpeg)
+![Grading Light](assets/grading-light.jpeg)
+
+### 📄 Result Output
+![Result](assets/result.jpeg)
 
 ---
 
@@ -65,20 +85,20 @@ As a result, it transforms a complicated manual process into a **simple, fast, a
 
 ## 📌 How It Works
 
-1. Enter subject details along with assigned credits  
-2. Select grades based on the DTU grading system  
-3. The system calculates SGPA automatically  
-4. Add multiple semesters to compute CGPA  
-5. Download the final result as a PDF  
+1. Enter subject details with credits  
+2. Select grades as per DTU grading system  
+3. SGPA is calculated instantly (live)  
+4. Add multiple semesters for CGPA  
+5. Download result as PDF  
 
 ---
 
 ## 📊 Grading System
 
-This calculator follows the official **DTU Absolute Grading System (10-point scale)** to ensure accuracy and consistency.
+This tool follows the official **DTU Absolute Grading System (10-point scale)** ensuring accurate and reliable results.
 
 ---
 
 ## 👨‍💻 Author
 
-ISUDO09
+**ISUDO09**
